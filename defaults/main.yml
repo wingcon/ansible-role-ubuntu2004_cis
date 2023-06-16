@@ -483,3 +483,5 @@ chrony_config_file:
 
 ### Firewall
 ubuntu2004cis_setup_firewall: false
+
+ubuntu2004cis_package_change_allowed: true

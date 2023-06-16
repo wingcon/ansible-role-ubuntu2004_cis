@@ -54,6 +54,7 @@
   apt:
     update_cache: true
   changed_when: false
+  when: ubuntu2004cis_package_change_allowed
 
 - name: "PRELIM | Section 4.1 | Configure System Accounting (auditd)"
   apt:
@@ -62,12 +63,14 @@
     install_recommends: false
   when:
       - not ubuntu2004cis_auditd_disable
+      - ubuntu2004cis_package_change_allowed
 
 - name: "PRELIM | Section 5.1 | Configure cron"
   apt:
     name: "{{ cron_package[ansible_os_family] }}"
     state: present
     install_recommends: false
+  when: ubuntu2004cis_package_change_allowed
 
 - name: "PRELIM | Check if prelink package is installed"
   command: "{{ prelim_check_package_command[ansible_os_family] }} prelink"

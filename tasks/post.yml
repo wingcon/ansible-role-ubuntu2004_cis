@@ -8,6 +8,7 @@
       executable: /bin/bash
   register: apt_rc_packages
   changed_when: false
+  when: ubuntu2004cis_package_change_allowed
 
 - name: "POST | Perform apt package cleanup"
   apt:
@@ -16,6 +17,8 @@
     purge: true
   changed_when: false
   ignore_errors: true
-  when: not ansible_check_mode
+  when:
+    - not ansible_check_mode
+    - ubuntu2004cis_package_change_allowed
   tags:
     - skip_ansible_lint

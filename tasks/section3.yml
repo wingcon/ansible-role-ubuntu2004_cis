@@ -731,6 +731,7 @@
       install_recommends: false
   when:
       - ubuntu2004cis_firewall == "iptables"
+      - ubuntu2004cis_package_change_allowed
   tags:
       - level1
       - scored
@@ -746,6 +747,7 @@
       state: absent
   when:
       - ubuntu2004cis_firewall == "iptables"
+      - ubuntu2004cis_package_change_allowed
       - ubuntu2004cis_rule_3_5_3_1_2
       - ubuntu2004cis_rule_3_5_3_1_3
       - ubuntu2004cis_setup_firewall
