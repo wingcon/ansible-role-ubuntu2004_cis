@@ -38,7 +38,7 @@ With this in the file requirements.yml:
 ```
 - name: Harden Server
   hosts: servers
-  become: yes
+  become: true
 
   roles:
     - ubuntu2004_cis

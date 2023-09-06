@@ -7,7 +7,7 @@
       apt:
         name: openssh-server
         state: present
-        update_cache: yes
+        update_cache: true
     - name: install grub files for testing under docker
       block:
         - name: create /boot/grub

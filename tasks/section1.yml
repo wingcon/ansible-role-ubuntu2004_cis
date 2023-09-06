@@ -249,9 +249,9 @@
 - name: "SCORED | 1.1.2 | PATCH | Ensure separate partition exists for /tmp | enable and start/restart tmp.mount"
   systemd:
       name: tmp.mount
-      daemon_reload: yes
-      enabled: yes
-      masked: no
+      daemon_reload: true
+      enabled: true
+      masked: false
       state: started
   when:
       - ubuntu2004cis_rule_1_1_2

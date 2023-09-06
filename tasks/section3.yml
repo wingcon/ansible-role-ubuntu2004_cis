@@ -559,11 +559,11 @@
   block:
       - name: "NOTSCORED | 3.5.2.3 | PATCH | Ensure iptables are flushed | ipv4"
         iptables:
-            flush: yes
+            flush: true
 
       - name: "NOTSCORED | 3.5.2.3 | PATCH | Ensure iptables are flushed | ipv6"
         iptables:
-            flush: yes
+            flush: true
             ip_version: ipv6
         when: ubuntu2004cis_ipv6_required
   when:

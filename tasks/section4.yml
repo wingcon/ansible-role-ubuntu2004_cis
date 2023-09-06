@@ -68,7 +68,7 @@
       regexp: "^max_log_file( |=)"
       line: "max_log_file = {{ ubuntu2004cis_auditd.max_audit_log_file_size }}"
       state: present
-      create: yes
+      create: true
   when:
       - ubuntu2004cis_rule_4_1_2_1
   notify:
@@ -86,7 +86,7 @@
       regexp: "^max_log_file_action"
       line: "max_log_file_action = {{ ubuntu2004cis_auditd['max_log_file_action'] }}"
       state: present
-      create: yes
+      create: true
   when:
       - ubuntu2004cis_rule_4_1_2_2
   notify:
@@ -106,7 +106,7 @@
             regexp: "^admin_space_left_action"
             line: "admin_space_left_action = {{ ubuntu2004cis_auditd['admin_space_left_action'] }}"
             state: present
-            create: yes
+            create: true
         notify:
             - restart auditd
 
@@ -116,7 +116,7 @@
             regexp: "^space_left_action"
             line: "space_left_action = email"
             state: present
-            create: yes
+            create: true
         notify:
             - restart auditd
 
@@ -126,7 +126,7 @@
             regexp: "^action_mail_acct"
             line: "action_mail_acct = root"
             state: present
-            create: yes
+            create: true
         notify:
             - restart auditd
   when:
@@ -450,7 +450,7 @@
 - name: "SCORED | 4.2.1.2 | PATCH | Ensure rsyslog Service is enabled"
   service:
       name: rsyslog
-      enabled: yes
+      enabled: true
   changed_when: false
   when:
       - ubuntu2004cis_rule_4_2_1_2

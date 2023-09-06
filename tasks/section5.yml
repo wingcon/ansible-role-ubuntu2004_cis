@@ -557,7 +557,7 @@
       - name: "SCORED | 5.3.1 | PATCH | Ensure password creation requirements are configured"
         lineinfile:
             state: present
-            create: yes
+            create: true
             dest: /etc/security/pwquality.conf
             regexp: '^{{ item.key }}'
             line: '{{ item.key }} = {{ item.value }}'
@@ -675,7 +675,7 @@
       - name: "SCORED | 5.4.1.5 | PATCH | Ensure all users last password change date is in the past| lock users"
         user:
             name: "{{ item }}"
-            password_lock: yes"
+            password_lock: true
         loop: "{{ users_password_change_date_in_future.stdout_lines }}"
         when:
             - ubuntu2004cis_password_change_date_in_future_action == 'lock'
