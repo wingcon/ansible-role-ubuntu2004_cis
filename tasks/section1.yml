@@ -19,6 +19,26 @@
       - filesystems
       - rule_1.1.1.1
 
+- name: "SCORED | 1.1.1.1 | PATCH | Ensure loading cramfs module is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?blacklist cramfs(\\s|$)"
+      line: "blacklist cramfs"
+      state: present
+      owner: root
+      group: root
+      mode: 0644
+      create: true
+  when:
+      - ubuntu2004cis_rule_1_1_1_1
+  tags:
+      - level1
+      - scored
+      - patch
+      - cramfs
+      - filesystems
+      - rule_1.1.1.1
+
 - name: "SCORED | 1.1.1.1 | PATCH | Remove cramfs module"
   modprobe:
       name: cramfs
@@ -39,6 +59,23 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install freevxfs"
       line: "install freevxfs /bin/false"
+      state: present
+      create: true
+  when:
+      - ubuntu2004cis_rule_1_1_1_2
+  tags:
+      - level1
+      - scored
+      - patch
+      - freevxfs
+      - filesystems
+      - rule_1.1.1.2
+
+- name: "SCORED | 1.1.1.2 | PATCH | Ensure loading of freevxfs module is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?blacklist freevxfs"
+      line: "blacklist freevxfs"
       state: present
       create: true
   when:
@@ -83,6 +120,23 @@
       - filesystems
       - rule_1.1.1.3
 
+- name: "SCORED | 1.1.1.3 | PATCH | Ensure loading of jffs2 module is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?blacklist jffs2(\\s|$)"
+      line: "blacklist jffs2"
+      state: present
+      create: true
+  when:
+      - ubuntu2004cis_rule_1_1_1_3
+  tags:
+      - level1
+      - scored
+      - patch
+      - jffs2
+      - filesystems
+      - rule_1.1.1.3
+
 - name: "SCORED | 1.1.1.3 | PATCH | Remove jffs2 module"
   modprobe:
       name: jffs2
@@ -103,6 +157,23 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install hfs(\\s|$)"
       line: "install hfs /bin/false"
+      state: present
+      create: true
+  when:
+      - ubuntu2004cis_rule_1_1_1_4
+  tags:
+      - level1
+      - scored
+      - patch
+      - hfs
+      - filesystems
+      - rule_1.1.1.4
+
+- name: "SCORED | 1.1.1.4 | PATCH | Ensure loading of hfs module is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?blacklist hfs(\\s|$)"
+      line: "blacklist hfs"
       state: present
       create: true
   when:
@@ -147,6 +218,23 @@
       - filesystems
       - rule_1.1.1.5
 
+- name: "SCORED | 1.1.1.5 | PATCH | Ensure loading of hfsplus module is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?blacklist hfsplus(\\s|$)"
+      line: "blacklist hfsplus"
+      state: present
+      create: true
+  when:
+      - ubuntu2004cis_rule_1_1_1_5
+  tags:
+      - level1
+      - scored
+      - patch
+      - hfsplus
+      - filesystems
+      - rule_1.1.1.5
+
 - name: "SCORED | 1.1.1.5 | PATCH | Remove hfsplus module"
   modprobe:
       name: hfsplus
@@ -179,6 +267,23 @@
       - filesystems
       - rule_1.1.1.6
 
+- name: "SCORED | 1.1.1.6 | PATCH | Ensure loading of udf module is disabled"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?blacklist udf(\\s|$)"
+      line: "blacklist udf"
+      state: present
+      create: true
+  when:
+      - ubuntu2004cis_rule_1_1_1_6
+  tags:
+      - level1
+      - scored
+      - patch
+      - udf
+      - filesystems
+      - rule_1.1.1.6
+
 - name: "SCORED | 1.1.1.6 | PATCH | Remove udf module"
   modprobe:
       name: udf
@@ -199,6 +304,23 @@
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install vfat(\\s|$)"
       line: "install vfat /bin/false"
+      state: present
+      create: true
+  when:
+      - ubuntu2004cis_rule_1_1_1_7
+  tags:
+      - level2
+      - notscored
+      - patch
+      - vfat
+      - filesystems
+      - rule_1.1.1.7
+
+- name: "NOTSCORED | 1.1.1.7 | PATCH | Ensure loading of FAT module is limited"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?blacklist vfat(\\s|$)"
+      line: "blacklist vfat"
       state: present
       create: true
   when:
