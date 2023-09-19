@@ -3,7 +3,7 @@
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install cramfs(\\s|$)"
-      line: "install cramfs /bin/true"
+      line: "install cramfs /bin/false"
       state: present
       owner: root
       group: root
@@ -38,7 +38,7 @@
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install freevxfs"
-      line: "install freevxfs /bin/true"
+      line: "install freevxfs /bin/false"
       state: present
       create: true
   when:
@@ -70,7 +70,7 @@
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install jffs2(\\s|$)"
-      line: "install jffs2 /bin/true"
+      line: "install jffs2 /bin/false"
       state: present
       create: true
   when:
@@ -102,7 +102,7 @@
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install hfs(\\s|$)"
-      line: "install hfs /bin/true"
+      line: "install hfs /bin/false"
       state: present
       create: true
   when:
@@ -134,7 +134,7 @@
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install hfsplus(\\s|$)"
-      line: "install hfsplus /bin/true"
+      line: "install hfsplus /bin/false"
       state: present
       create: true
   when:
@@ -166,7 +166,7 @@
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install udf(\\s|$)"
-      line: "install udf /bin/true"
+      line: "install udf /bin/false"
       state: present
       create: true
   when:
@@ -198,7 +198,7 @@
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install vfat(\\s|$)"
-      line: "install vfat /bin/true"
+      line: "install vfat /bin/false"
       state: present
       create: true
   when:
