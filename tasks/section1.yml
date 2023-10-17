@@ -626,7 +626,7 @@
   lineinfile:
       dest: /etc/modprobe.d/CIS.conf
       regexp: "^(#)?install usb-storage(\\s|$)"
-      line: "install usb-storage /bin/true"
+      line: "install usb-storage /bin/false"
       state: present
       create: true
   when:
