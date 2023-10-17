@@ -639,6 +639,23 @@
       - filesystems
       - rule_1.1.24
 
+- name: "SCORED | 1.1.24 | PATCH | Disable loading USB Storage module"
+  lineinfile:
+      dest: /etc/modprobe.d/CIS.conf
+      regexp: "^(#)?blacklist usb-storage(\\s|$)"
+      line: "blacklist usb-storage"
+      state: present
+      create: true
+  when:
+      - ubuntu2004cis_rule_1_1_24
+  tags:
+      - level1
+      - scored
+      - patch
+      - udf
+      - filesystems
+      - rule_1.1.24
+
 - name: "SCORED | 1.1.24 | PATCH | Remove usb-storage module"
   modprobe:
       name: usb-storage
